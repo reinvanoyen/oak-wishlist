@@ -1,6 +1,6 @@
 {
   "name": "reinvanoyen/oak-wishlist",
-  "description": "CLI helpers for DRY",
+  "description": "Wishlist for Oak",
   "keywords": ["fav", "list", "favorites", "wishlist", "oak"],
   "type": "library",
   "authors": [
