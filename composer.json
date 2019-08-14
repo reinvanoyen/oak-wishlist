@@ -9,7 +9,9 @@
       "email": "reinvanoyen@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "reinvanoyen/dry-internal-api": "dev-master"
+  },
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {

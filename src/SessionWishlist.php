@@ -28,7 +28,7 @@ class SessionWishlist implements WishlistInterface
 	{
 		$classname = get_class($item);
 
-		if (isset($this->items[$classname][$item->getWishlistId()])) {
+		if ($this->has($item)) {
 			return;
 		}
 
@@ -48,11 +48,13 @@ class SessionWishlist implements WishlistInterface
 	{
 		$classname = get_class($item);
 
-		if (! isset($this->items[$classname][$item->getWishlistId()])) {
+		if (! $this->has($item)) {
 			return;
 		}
 
-		unset($this->items[$classname][$item->getWishlistId()]);
+		$classNameArray =& $this->items[$classname];
+		unset($classNameArray[array_search($item->getWishlistId(), $classNameArray)]);
+
 		$this->save();
 	}
 
