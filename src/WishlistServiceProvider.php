@@ -11,6 +11,7 @@ class WishlistServiceProvider extends ServiceProvider
 {
 	public function boot(ContainerInterface $app)
 	{
+		Api::get('wishlist/items/', '\\Tnt\\Wishlist\\Controller\\ApiController::items');
 		Api::get('wishlist/toggle/', '\\Tnt\\Wishlist\\Controller\\ApiController::toggle');
 		Api::get('wishlist/add/', '\\Tnt\\Wishlist\\Controller\\ApiController::add');
 		Api::get('wishlist/remove/', '\\Tnt\\Wishlist\\Controller\\ApiController::remove');
