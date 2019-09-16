@@ -22,6 +22,15 @@ class ApiController
 		}
 	}
 
+	public static function items(Request $request)
+	{
+		$wishlistItems = array_map(function($item) {
+			return $item->serialize();
+		}, Wishlist::getItems());
+
+		return json_encode($wishlistItems);
+	}
+
 	public static function toggle(Request $request)
 	{
 		self::validateClass($request->data->string('class'));
