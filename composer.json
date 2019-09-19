@@ -10,9 +10,9 @@
     }
   ],
   "require": {
-    "reinvanoyen/dry-internal-api": "dev-master"
+    "reinvanoyen/oak": "^1.0.0",
+    "reinvanoyen/dry-internal-api": "^1.0.0"
   },
-  "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
       "Tnt\\Wishlist\\": "src/"
