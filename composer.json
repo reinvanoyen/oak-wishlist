@@ -11,7 +11,11 @@
   ],
   "require": {
     "reinvanoyen/oak": "^1.0.0",
+<<<<<<< HEAD
     "reinvanoyen/dry-internal-api": "^1.0.0"
+=======
+    "reinvanoyen/dry-internal-api": "dev-master"
+>>>>>>> 9e2c2c29e3b8bc426a4d448a53fd8a499bd9c3c1
   },
   "autoload": {
     "psr-4": {
