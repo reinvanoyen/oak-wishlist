@@ -1,5 +1,5 @@
 {
-  "name": "reinvanoyen/oak-wishlist",
+  "name": "tallieutallieu/oak-wishlist",
   "description": "Wishlist for Oak",
   "keywords": ["fav", "list", "favorites", "wishlist", "oak"],
   "type": "library",
@@ -10,8 +10,8 @@
     }
   ],
   "require": {
-    "reinvanoyen/oak": "^1.0.0",
-    "reinvanoyen/dry-internal-api": "^1.0.0"
+    "tallieutallieu/oak": "^1.0.0",
+    "tallieutallieu/dry-internal-api": "^1.0.0"
   },
   "autoload": {
     "psr-4": {
