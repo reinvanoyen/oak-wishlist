@@ -3,23 +3,13 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Wishlist Storage
+    | Wishlist Driver
     |--------------------------------------------------------------------------
     |
     | Possible options: session, database
     |
     */
-    'storage' => 'database',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Wishlist Table
-    |--------------------------------------------------------------------------
-    |
-    | Provide a different table name if needed.
-    |
-    */
-    'table' => 'wishlist',
+    'driver' => 'database',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,5 +20,18 @@ return [
     | Only available when using database storage.
     |
     */
-    'model' => Tnt\Wishlist\Model\Wishlist::class
+    'model' => Tnt\Wishlist\Model\Wishlist::class,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Wishlist Identifier
+    |--------------------------------------------------------------------------
+    |
+    | When the database option is selected, we need an identifier to attach the
+    | Wishlist items to.
+    |
+    | You can specify the Model that implements WishlistableInterface here.
+    |
+    */
+    'identifier' => app\model\User::class,
 ];
