@@ -8,7 +8,9 @@ use Oak\Migration\MigrationManager;
 use Oak\Migration\Migrator;
 use Oak\ServiceProvider;
 use Tnt\Account\Facade\Auth;
+use Tnt\Account\SessionUserStorage;
 use Tnt\InternalApi\Facade\Api;
+use Tnt\Wishlist\Contracts\WishlistableInterface;
 use Tnt\Wishlist\Contracts\WishlistInterface;
 use Tnt\Wishlist\Exception\InvalidIdentifierException;
 use Tnt\Wishlist\Revisions\CreateWishlistTable;
@@ -40,21 +42,24 @@ class WishlistServiceProvider extends ServiceProvider
 	{
         $config = $app->get(RepositoryInterface::class);
 
-        if ($config->get('wishlist.storage') === 'session') {
+        if ($config->get('wishlist.driver') === 'session') {
 		    $app->singleton(WishlistInterface::class, SessionWishlist::class);
         }
 
-        if ($config->get('wishlist.storage') === 'database') {
+        if ($config->get('wishlist.driver') === 'database') {
             $model = $config->get('wishlist.model', Model\Wishlist::class);
-            $identifier = $config->get('wishlist.identifier');
+            $wishlistable = $config->get('wishlist.identifier');
 
-            if (!$identifier) {
+            if (!$wishlistable) {
                 throw new InvalidIdentifierException();
             }
 
             $app->singleton(WishlistInterface::class, DatabaseWishlist::class);
+
+            $app->set(WishlistableInterface::class, $wishlistable);
+
             $app->whenAsksGive(DatabaseWishlist::class, 'model', $model);
-            $app->whenAsksGive(DatabaseWishlist::class, 'identifier', $identifier);
+            //$app->whenAsksGive(DatabaseWishlist::class, 'identifier', $identifier);
         }
 	}
 }

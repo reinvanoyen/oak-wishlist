@@ -4,6 +4,7 @@ namespace Tnt\Wishlist;
 
 use dry\db\FetchException;
 use dry\Debug;
+use Tnt\Wishlist\Contracts\WishlistableInterface;
 use Tnt\Wishlist\Contracts\WishlistInterface;
 use Tnt\Wishlist\Contracts\WishlistItemInterface;
 
@@ -15,12 +16,12 @@ class DatabaseWishlist implements WishlistInterface
 
     private $items = [];
 
-    public function __construct(string $model, $identifier)
+    public function __construct(WishlistableInterface $wishlistable, string $model)
     {
         $this->model = $model;
-        $this->identifier = $identifier;
+        $this->identifier = $wishlistable->getWishlistIdentifier();
 
-        Debug::log($identifier, $identifier);
+        Debug::log($wishlistable->getWishlistIdentifier(), $wishlistable->getWishlistIdentifier());
 
         $this->restore();
     }
