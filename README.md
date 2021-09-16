@@ -4,7 +4,7 @@
 #### Installation
 
 ```ssh
-composer require reinvanoyen/oak-wishlist
+composer require tallieutallieu/oak-wishlist
 ```
 
 #### Example usage

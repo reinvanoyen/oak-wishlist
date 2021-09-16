@@ -72,7 +72,7 @@ class SessionWishlist implements WishlistInterface
 	/**
 	 * @return void
 	 */
-	public function clear()
+	public function clear(): void
 	{
 		$this->items = [];
 		$this->save();

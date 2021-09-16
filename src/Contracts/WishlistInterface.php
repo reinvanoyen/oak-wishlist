@@ -37,7 +37,7 @@ interface WishlistInterface
 	 *
 	 * @return void
 	 */
-	public function clear();
+	public function clear(): void;
 
 	/**
 	 * Gets all items
